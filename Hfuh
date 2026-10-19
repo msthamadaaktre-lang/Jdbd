@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Ads Button</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        .ad-btn {
+            background-color: #0088cc;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .ad-btn:hover {
+            background-color: #006699;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>বিজ্ঞাপন দেখতে নিচের বাটনে ক্লিক করুন</h2>
+    
+    <!-- অ্যাড দেখানোর বাটন -->
+    <button id="showAdBtn" class="ad-btn">বিজ্ঞাপন দেখুন</button>
+
+    <!-- রিচইনফো স্ক্রিপ্ট -->
+    <script src="https://richinfo.co/richpartners/telegram/js/tg-ob.js"></script>
+    <script>
+        // কন্ট্রোলার ইনিশিয়ালাইজ করা
+        window.TelegramAdsController = new TelegramAdsController();
+        window.TelegramAdsController.initialize({
+             pubId: "1025772",
+             appId: "9349",
+        });
+
+        // বাটনে ক্লিক করলে অ্যাড প্রদর্শনের লজিক
+        document.getElementById('showAdBtn').addEventListener('click', function() {
+            if (window.TelegramAdsController) {
+                // এখানে আপনার নেটওয়ার্কের ডকুমেন্টেশন অনুযায়ী অ্যাড দেখানোর মেথড কল করতে হবে
+                // সাধারণত রিচইনফো বা টেলিগ্রাম অ্যাড স্ক্রিপ্টগুলো স্বয়ংক্রিয়ভাবে কাজ করে বা নির্দিষ্ট ফাংশন থাকে
+                try {
+                    // উদাহরণস্বরূপ যদি কোনো নির্দিষ্ট ফাংশন থাকে:
+                    window.TelegramAdsController.show(); 
+                } catch (error) {
+                    console.log("অ্যাড লোড হতে সমস্যা হচ্ছে:", error);
+                    alert("দুঃখিত, এই মুহূর্তে কোনো বিজ্ঞাপন উপলব্ধ নেই।");
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
